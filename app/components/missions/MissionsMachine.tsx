@@ -468,10 +468,10 @@ export default function MissionsMachine() {
           >
             {/* Branding strip */}
             <div className="flex items-center gap-2">
-              <LED on={powerOn} color="#a855f7" pulse />
+              <LED on={powerOn} color="#ccff16" pulse />
               <LED on={powerOn} color="#06b6d4" />
-              <LED on={powerOn} color="#10b981" />
-              <span className="font-mono text-[9px] tracking-[0.4em] text-white/25 ml-2">PROJECT DISPENSER v2.0</span>
+              <LED on={powerOn} color="#a510b9" />
+              <span className="font-mono text-[9px] tracking-[0.4em] text-white/25 ml-2">Máquina expendedora de proyectos</span>
             </div>
             <div className="flex items-center gap-3">
               <LED on={!!selected} color={selectedColor?.primary ?? "#fff"} pulse={!!selected} />
