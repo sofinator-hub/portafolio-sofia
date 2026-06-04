@@ -11,90 +11,55 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      <div className="absolute inset-0 space-grid opacity-30" />
+      {/* Grid */}
+      <div className="absolute inset-0 space-grid opacity-20" />
 
+      {/* Background */}
       <OrbitBackground />
       <Stars />
 
-      <div className="max-w-[1500px] mx-auto w-full px-8 md:px-20">
-
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-
+      <div className="max-w-[1400px] mx-auto w-full px-6 md:px-20">
+        <div className="grid lg:grid-cols-2 gap-4 lg:gap-10 items-center">
+          
           {/* TEXTO */}
-
-          <div className="relative z-10">
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              className="
-                inline-flex
-                items-center
-
-                px-5
-                py-3
-
-                rounded-full
-
-                border
-                border-white/10
-
-                bg-white/5
-
-                text-sm
-
-                mb-8
-              "
-            >
-              Disponible para proyectos
-            </motion.div>
-
-            <motion.p
-              initial={{
-                opacity: 0,
-                y: 20,
-              }}
-              animate={{
-                opacity: 1,
-                y: 0,
-              }}
-              className="
-                uppercase
-
-                tracking-[0.45em]
-
-                text-white/40
-
-                mb-8
-              "
-            >
-              Backend • Cybersecurity • Robotics
-            </motion.p>
+          <div className="relative z-10 text-center lg:text-left">
 
             <motion.h1
               initial={{
                 opacity: 0,
-                y: 40,
+                y: 30,
               }}
               animate={{
                 opacity: 1,
                 y: 0,
               }}
               transition={{
-                delay: 0.2,
+                duration: 0.8,
               }}
               className="
                 text-5xl
-                md:text-[9rem]
-
+                sm:text-6xl
+                md:text-8xl
+                lg:text-[8rem]
                 font-bold
-
                 leading-[0.9]
               "
             >
               Hola, soy
               <br />
               Sofia
+              <motion.span
+                animate={{
+                  opacity: [1, 0, 1],
+                }}
+                transition={{
+                  duration: 1,
+                  repeat: Infinity,
+                }}
+                className="text-violet-400"
+              >
+                |
+              </motion.span>
             </motion.h1>
 
             <motion.p
@@ -105,23 +70,22 @@ export default function Hero() {
                 opacity: 1,
               }}
               transition={{
-                delay: 0.4,
+                delay: 0.3,
               }}
               className="
-                mt-8
-
-                max-w-xl
-
-                text-white/60
-                text-lg
-                md:text-xl
-
+                mt-6
+                text-white/70
+                text-xl
+                md:text-2xl
                 leading-relaxed
+                max-w-lg
+                mx-auto
+                lg:mx-0
               "
             >
-              Ingeniera enfocada en desarrollo backend,
-              ciberseguridad, automatización y experiencias
-              digitales modernas.
+              Ingeniera de Software
+              <br />
+              y Ciberseguridad.
             </motion.p>
 
             <motion.div
@@ -137,47 +101,49 @@ export default function Hero() {
               className="mt-10"
             >
               <a
-                href="#skills"
+                href="#projects"
                 className="
                   inline-flex
+                  items-center
+                  gap-3
 
-                  px-8
-                  py-4
+                  text-white/70
+                  text-lg
 
-                  rounded-full
+                  hover:text-violet-400
 
-                  border
-                  border-white/15
-
-                  hover:border-violet-400
-
-                  transition
+                  transition-all
+                  duration-300
                 "
               >
-                Ver habilidades
+                Explorar proyectos
+                <span>↓</span>
               </a>
             </motion.div>
-
           </div>
 
           {/* PLANETA */}
-
           <div
             className="
               relative
 
-              h-[700px]
+              h-[280px]
+              sm:h-[350px]
+              md:h-[450px]
+              lg:h-[650px]
 
               flex
               items-center
               justify-center
+
+              mt-6
+              lg:mt-0
             "
           >
             <Planet />
           </div>
 
         </div>
-
       </div>
     </section>
   );
