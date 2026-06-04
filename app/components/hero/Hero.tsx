@@ -11,17 +11,32 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      <div className="absolute inset-0 space-grid opacity-20" />
+      <div className="absolute inset-0 space-grid opacity-10" />
 
       <OrbitBackground />
       <Stars />
 
       <div className="max-w-[1400px] mx-auto w-full px-6 md:px-20">
-        <div className="grid lg:grid-cols-2 gap-4 lg:gap-10 items-center">
+        <div className="grid lg:grid-cols-2 items-center gap-8">
 
           {/* TEXTO */}
 
           <div className="relative z-10 text-center lg:text-left">
+
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              className="
+                mb-8
+                uppercase
+                tracking-[0.3em]
+                text-violet-400
+                text-xs
+                md:text-sm
+              "
+            >
+              // Bienvenido a mi portafolio
+            </motion.p>
 
             <motion.h1
               initial={{
@@ -39,16 +54,18 @@ export default function Hero() {
                 text-6xl
                 sm:text-7xl
                 md:text-8xl
-                lg:text-[8rem]
+                lg:text-[7rem]
 
                 font-bold
-
                 leading-[0.9]
               "
             >
               Hola, soy
               <br />
-              Sofia
+
+              <span className="text-violet-400">
+                Sofia
+              </span>
 
               <motion.span
                 animate={{
@@ -59,10 +76,9 @@ export default function Hero() {
                   repeat: Infinity,
                 }}
                 className="
-                  text-violet-400
-                  text-[0.8em]
-                  ml-1
+                  ml-2
                   font-light
+                  text-violet-400
                 "
               >
                 |
@@ -70,24 +86,18 @@ export default function Hero() {
             </motion.h1>
 
             <motion.p
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              transition={{
-                delay: 0.3,
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
               className="
-                mt-6
+                mt-8
 
-                text-lg
-                md:text-2xl
+                text-2xl
+                md:text-4xl
 
-                leading-relaxed
+                leading-tight
 
-                max-w-lg
+                max-w-[700px]
 
                 mx-auto
                 lg:mx-0
@@ -106,16 +116,36 @@ export default function Hero() {
               </span>
             </motion.p>
 
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="
+                mt-8
+
+                text-white/60
+
+                text-base
+                md:text-lg
+
+                leading-relaxed
+
+                max-w-[520px]
+
+                mx-auto
+                lg:mx-0
+              "
+            >
+              Creo experiencias digitales,
+              sitios web modernos,
+              automatizaciones y soluciones
+              tecnológicas enfocadas en resultados.
+            </motion.p>
+
             <motion.div
-              initial={{
-                opacity: 0,
-              }}
-              animate={{
-                opacity: 1,
-              }}
-              transition={{
-                delay: 0.6,
-              }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.8 }}
               className="mt-10"
             >
               <a
@@ -123,18 +153,34 @@ export default function Hero() {
                 className="
                   inline-flex
                   items-center
-                  gap-3
+                  justify-center
 
-                  text-white/70
-                  text-lg
+                  px-8
+                  py-4
 
-                  hover:text-violet-400
+                  rounded-2xl
+
+                  border
+                  border-violet-400/30
+
+                  bg-white/[0.02]
+
+                  backdrop-blur-sm
+
+                  text-white
+
+                  tracking-[0.2em]
+                  uppercase
+                  text-sm
+
+                  hover:border-violet-400
+                  hover:bg-violet-500/10
 
                   transition-all
                   duration-300
                 "
               >
-                Ver proyectos →
+                Ver proyectos
               </a>
             </motion.div>
 
@@ -146,17 +192,14 @@ export default function Hero() {
             className="
               relative
 
-              h-[260px]
-              sm:h-[340px]
-              md:h-[450px]
+              h-[280px]
+              sm:h-[400px]
+              md:h-[500px]
               lg:h-[650px]
 
               flex
               items-center
               justify-center
-
-              mt-8
-              lg:mt-0
             "
           >
             <Planet />
