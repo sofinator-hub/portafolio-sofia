@@ -430,17 +430,12 @@ export default function MissionsMachine() {
       {/* Section header */}
       <div className="text-center mb-10">
         <p className="font-mono text-[10px] tracking-[0.5em] text-white/25 mb-3 uppercase">Proyectos</p>
-<h2
-  className="
-    font-black
-    text-3xl
-    md:text-5xl
-    tracking-tight
-    text-white
-  "
->
-  Máquina Expendedora de Proyectos
-</h2>
+        <h2 className="font-black text-4xl md:text-5xl tracking-tight text-white" style={{ textShadow: "0 0 60px rgba(168,85,247,0.3)" }}>
+          Maquina expendedora{" "}
+          <span style={{ background: "linear-gradient(135deg, #a855f7, #ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>
+            de Proyectos
+          </span>
+        </h2>
       </div>
 
       {/* ═══════════════════ MACHINE CHASSIS ═══════════════════ */}
