@@ -162,43 +162,80 @@ function LED({ on, color = "#a855f7", pulse = false }: { on: boolean; color?: st
 }
 
 // ─── Keypad button ────────────────────────────────────────────────────────────
-function KeyBtn({ label, onClick, variant = "default" }: { label: string; onClick: () => void; variant?: "default" | "clear" | "dispense" }) {
+function KeyBtn({
+  label,
+  onClick,
+  variant = "default",
+}: {
+  label: string;
+  onClick: () => void;
+  variant?: "default" | "clear" | "dispense";
+}) {
   const [pressed, setPressed] = useState(false);
-  const base = "relative font-mono font-bold transition-all duration-100 select-none cursor-pointer active:scale-95 rounded-xl overflow-hidden";
+
+  const base =
+    "relative font-mono font-bold transition-all duration-100 select-none cursor-pointer active:scale-95 rounded-xl overflow-hidden";
+
   const variants = {
     default: "h-12 text-sm text-white/70 hover:text-white",
-    clear:   "h-10 text-xs text-red-400 hover:text-red-300",
+    clear: "h-10 text-xs text-red-400 hover:text-red-300",
     dispense: "h-14 text-sm tracking-widest text-black font-black",
   };
+
   const bg = {
-    default: pressed ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.05)",
-    clear:   "rgba(239,68,68,0.1)",
+    default: pressed
+      ? "rgba(255,255,255,0.12)"
+      : "rgba(255,255,255,0.05)",
+    clear: "rgba(239,68,68,0.1)",
     dispense: "",
   };
+
   return (
     <button
+      type="button"
+      onClick={onClick}
       onMouseDown={() => setPressed(true)}
-      onMouseUp={() => { setPressed(false); onClick(); }}
+      onMouseUp={() => setPressed(false)}
       onMouseLeave={() => setPressed(false)}
       onTouchStart={() => setPressed(true)}
-      onTouchEnd={() => { setPressed(false); onClick(); }}
+      onTouchEnd={() => setPressed(false)}
       className={`${base} ${variants[variant]}`}
       style={{
-        background: variant === "dispense" ? undefined : bg[variant],
-        border: variant === "dispense" ? "none" : "1px solid rgba(255,255,255,0.08)",
-        boxShadow: pressed && variant !== "dispense"
-          ? "inset 0 2px 4px rgba(0,0,0,0.5)"
-          : variant !== "dispense" ? "0 2px 0 rgba(0,0,0,0.4)" : "",
-        transform: pressed ? "translateY(1px)" : "translateY(0)",
+        background:
+          variant === "dispense" ? undefined : bg[variant],
+
+        border:
+          variant === "dispense"
+            ? "none"
+            : "1px solid rgba(255,255,255,0.08)",
+
+        boxShadow:
+          pressed && variant !== "dispense"
+            ? "inset 0 2px 4px rgba(0,0,0,0.5)"
+            : variant !== "dispense"
+            ? "0 2px 0 rgba(0,0,0,0.4)"
+            : "",
+
+        transform: pressed
+          ? "translateY(1px)"
+          : "translateY(0)",
       }}
     >
       {variant === "dispense" && (
         <span
           className="absolute inset-0 rounded-xl"
-          style={{ background: "linear-gradient(135deg, #a855f7, #ec4899, #a855f7)", backgroundSize: "200% 100%", animation: "shimmer 2s infinite linear" }}
+          style={{
+            background:
+              "linear-gradient(135deg, #a855f7, #ec4899, #a855f7)",
+            backgroundSize: "200% 100%",
+            animation: "shimmer 2s infinite linear",
+          }}
         />
       )}
-      <span className="relative z-10">{label}</span>
+
+      <span className="relative z-10">
+        {label}
+      </span>
     </button>
   );
 }
