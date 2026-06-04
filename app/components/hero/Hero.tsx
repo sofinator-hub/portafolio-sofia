@@ -11,17 +11,16 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex items-center overflow-hidden"
     >
-      {/* Grid */}
       <div className="absolute inset-0 space-grid opacity-20" />
 
-      {/* Background */}
       <OrbitBackground />
       <Stars />
 
       <div className="max-w-[1400px] mx-auto w-full px-6 md:px-20">
         <div className="grid lg:grid-cols-2 gap-4 lg:gap-10 items-center">
-          
+
           {/* TEXTO */}
+
           <div className="relative z-10 text-center lg:text-left">
 
             <motion.h1
@@ -37,17 +36,20 @@ export default function Hero() {
                 duration: 0.8,
               }}
               className="
-                text-5xl
-                sm:text-6xl
+                text-6xl
+                sm:text-7xl
                 md:text-8xl
                 lg:text-[8rem]
+
                 font-bold
+
                 leading-[0.9]
               "
             >
               Hola, soy
               <br />
               Sofia
+
               <motion.span
                 animate={{
                   opacity: [1, 0, 1],
@@ -56,7 +58,12 @@ export default function Hero() {
                   duration: 1,
                   repeat: Infinity,
                 }}
-                className="text-violet-400"
+                className="
+                  text-violet-400
+                  text-[0.8em]
+                  ml-1
+                  font-light
+                "
               >
                 |
               </motion.span>
@@ -74,18 +81,29 @@ export default function Hero() {
               }}
               className="
                 mt-6
-                text-white/70
-                text-xl
+
+                text-lg
                 md:text-2xl
+
                 leading-relaxed
+
                 max-w-lg
+
                 mx-auto
                 lg:mx-0
               "
             >
-              Ingeniera de Software
+              Ingeniera de{" "}
+              <span className="text-violet-400 font-semibold">
+                Software
+              </span>
+
               <br />
-              y Ciberseguridad.
+
+              y{" "}
+              <span className="text-violet-400 font-semibold">
+                Ciberseguridad
+              </span>
             </motion.p>
 
             <motion.div
@@ -116,19 +134,20 @@ export default function Hero() {
                   duration-300
                 "
               >
-                Explorar proyectos
-                <span>↓</span>
+                Ver proyectos →
               </a>
             </motion.div>
+
           </div>
 
           {/* PLANETA */}
+
           <div
             className="
               relative
 
-              h-[280px]
-              sm:h-[350px]
+              h-[260px]
+              sm:h-[340px]
               md:h-[450px]
               lg:h-[650px]
 
@@ -136,7 +155,7 @@ export default function Hero() {
               items-center
               justify-center
 
-              mt-6
+              mt-8
               lg:mt-0
             "
           >

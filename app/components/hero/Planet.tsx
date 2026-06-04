@@ -1,6 +1,12 @@
 "use client";
 
-import { motion, useMotionValue, useSpring } from "framer-motion";
+import {
+  motion,
+  useMotionValue,
+  useSpring,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 
 export default function Planet() {
   const mouseX = useMotionValue(0);
@@ -15,6 +21,20 @@ export default function Planet() {
     stiffness: 50,
     damping: 20,
   });
+
+  const { scrollYProgress } = useScroll();
+
+  const scrollRotate = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, 180]
+  );
+
+  const scrollYMove = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -60]
+  );
 
   const handleMouseMove = (
     e: React.MouseEvent<HTMLDivElement>
@@ -38,8 +58,11 @@ export default function Planet() {
       className="
         relative
 
-        w-[520px]
-        h-[520px]
+        w-[320px]
+        h-[320px]
+
+        md:w-[520px]
+        md:h-[520px]
 
         flex
         items-center
@@ -50,9 +73,7 @@ export default function Planet() {
       {/* ORBITA 1 */}
 
       <motion.div
-        animate={{
-          rotate: 360,
-        }}
+        animate={{ rotate: 360 }}
         transition={{
           duration: 60,
           repeat: Infinity,
@@ -61,8 +82,11 @@ export default function Planet() {
         className="
           absolute
 
-          w-[620px]
-          h-[340px]
+          w-[380px]
+          h-[220px]
+
+          md:w-[620px]
+          md:h-[340px]
 
           border
           border-violet-300/10
@@ -74,9 +98,7 @@ export default function Planet() {
       {/* ORBITA 2 */}
 
       <motion.div
-        animate={{
-          rotate: -360,
-        }}
+        animate={{ rotate: -360 }}
         transition={{
           duration: 90,
           repeat: Infinity,
@@ -85,8 +107,11 @@ export default function Planet() {
         className="
           absolute
 
-          w-[520px]
-          h-[280px]
+          w-[320px]
+          h-[180px]
+
+          md:w-[520px]
+          md:h-[280px]
 
           border
           border-violet-300/10
@@ -100,9 +125,7 @@ export default function Planet() {
       {/* ORBITA 3 */}
 
       <motion.div
-        animate={{
-          rotate: 360,
-        }}
+        animate={{ rotate: 360 }}
         transition={{
           duration: 120,
           repeat: Infinity,
@@ -111,8 +134,11 @@ export default function Planet() {
         className="
           absolute
 
-          w-[700px]
-          h-[400px]
+          w-[430px]
+          h-[260px]
+
+          md:w-[700px]
+          md:h-[400px]
 
           border
           border-white/5
@@ -126,18 +152,31 @@ export default function Planet() {
       {/* PLANETA */}
 
       <motion.div
-        style={{
-          rotateX,
-          rotateY,
+        animate={{
+          y: [0, -12, 0],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
         }}
         whileHover={{
           scale: 1.03,
         }}
+        style={{
+          rotateX,
+          rotateY,
+          rotate: scrollRotate,
+          y: scrollYMove,
+        }}
         className="
           relative
 
-          w-[260px]
-          h-[260px]
+          w-[180px]
+          h-[180px]
+
+          md:w-[260px]
+          md:h-[260px]
 
           rounded-full
 
@@ -152,9 +191,6 @@ export default function Planet() {
           backdrop-blur-xl
         "
       >
-
-        {/* glow */}
-
         <div
           className="
             absolute
@@ -167,8 +203,6 @@ export default function Planet() {
             blur-[120px]
           "
         />
-
-        {/* brillo */}
 
         <div
           className="
@@ -188,8 +222,6 @@ export default function Planet() {
           "
         />
 
-        {/* detalle */}
-
         <div
           className="
             absolute
@@ -206,10 +238,9 @@ export default function Planet() {
             border-white/10
           "
         />
-
       </motion.div>
 
-      {/* SATELITE */}
+      {/* SATÉLITE */}
 
       <motion.div
         animate={{
@@ -223,11 +254,13 @@ export default function Planet() {
         className="
           absolute
 
-          w-[520px]
-          h-[520px]
+          w-[320px]
+          h-[320px]
+
+          md:w-[520px]
+          md:h-[520px]
         "
       >
-
         <div
           className="
             absolute
@@ -247,7 +280,6 @@ export default function Planet() {
             shadow-[0_0_20px_white]
           "
         />
-
       </motion.div>
 
     </div>
