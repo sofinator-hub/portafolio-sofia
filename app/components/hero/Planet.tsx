@@ -24,16 +24,22 @@ export default function Planet() {
 
   const { scrollYProgress } = useScroll();
 
-  const scrollRotate = useTransform(
-    scrollYProgress,
-    [0, 1],
-    [0, 180]
-  );
-
   const scrollYMove = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -60]
+    [0, -40]
+  );
+
+  const scrollScale = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [1, 1.08]
+  );
+
+  const orbitRotate = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, 30]
   );
 
   const handleMouseMove = (
@@ -73,11 +79,8 @@ export default function Planet() {
       {/* ORBITA 1 */}
 
       <motion.div
-        animate={{ rotate: 360 }}
-        transition={{
-          duration: 60,
-          repeat: Infinity,
-          ease: "linear",
+        style={{
+          rotate: orbitRotate,
         }}
         className="
           absolute
@@ -98,7 +101,9 @@ export default function Planet() {
       {/* ORBITA 2 */}
 
       <motion.div
-        animate={{ rotate: -360 }}
+        animate={{
+          rotate: -360,
+        }}
         transition={{
           duration: 90,
           repeat: Infinity,
@@ -125,7 +130,9 @@ export default function Planet() {
       {/* ORBITA 3 */}
 
       <motion.div
-        animate={{ rotate: 360 }}
+        animate={{
+          rotate: 360,
+        }}
         transition={{
           duration: 120,
           repeat: Infinity,
@@ -153,7 +160,7 @@ export default function Planet() {
 
       <motion.div
         animate={{
-          y: [0, -12, 0],
+          y: [0, -10, 0],
         }}
         transition={{
           duration: 8,
@@ -166,8 +173,8 @@ export default function Planet() {
         style={{
           rotateX,
           rotateY,
-          rotate: scrollRotate,
           y: scrollYMove,
+          scale: scrollScale,
         }}
         className="
           relative
@@ -180,10 +187,7 @@ export default function Planet() {
 
           rounded-full
 
-          bg-gradient-to-br
-          from-violet-500/30
-          via-violet-700/20
-          to-black
+          overflow-hidden
 
           border
           border-white/10
@@ -191,16 +195,76 @@ export default function Planet() {
           backdrop-blur-xl
         "
       >
+
+        {/* BASE */}
+
         <div
           className="
             absolute
-            inset-[-80px]
+            inset-0
+            rounded-full
+          "
+          style={{
+            background: `
+              radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 25%),
+              radial-gradient(circle at 70% 70%, rgba(168,85,247,0.15), transparent 40%),
+              linear-gradient(
+                135deg,
+                rgba(139,92,246,0.55),
+                rgba(88,28,135,0.35),
+                rgba(0,0,0,0.9)
+              )
+            `,
+          }}
+        />
+
+        {/* BANDA ATMOSFÉRICA */}
+
+        <motion.div
+          animate={{
+            x: [-20, 20, -20],
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="
+            absolute
+
+            top-[35%]
+            left-[-10%]
+
+            w-[120%]
+            h-8
 
             rounded-full
 
-            bg-violet-500/20
+            bg-violet-300/10
 
-            blur-[120px]
+            blur-xl
+
+            rotate-[-12deg]
+          "
+        />
+
+        {/* SUPERFICIE */}
+
+        <div
+          className="
+            absolute
+
+            top-[25%]
+            left-[20%]
+
+            w-20
+            h-14
+
+            rounded-full
+
+            bg-violet-400/10
+
+            blur-md
           "
         />
 
@@ -208,8 +272,64 @@ export default function Planet() {
           className="
             absolute
 
-            top-8
-            left-10
+            bottom-[25%]
+            right-[20%]
+
+            w-16
+            h-12
+
+            rounded-full
+
+            bg-fuchsia-400/10
+
+            blur-md
+          "
+        />
+
+        {/* CRÁTERES */}
+
+        <div
+          className="
+            absolute
+
+            top-[55%]
+            left-[28%]
+
+            w-8
+            h-8
+
+            rounded-full
+
+            border
+            border-white/10
+          "
+        />
+
+        <div
+          className="
+            absolute
+
+            top-[35%]
+            right-[28%]
+
+            w-5
+            h-5
+
+            rounded-full
+
+            border
+            border-white/10
+          "
+        />
+
+        {/* ILUMINACIÓN */}
+
+        <div
+          className="
+            absolute
+
+            top-6
+            left-8
 
             w-24
             h-24
@@ -222,22 +342,46 @@ export default function Planet() {
           "
         />
 
+        {/* GLOW */}
+
         <div
           className="
             absolute
 
-            bottom-10
-            right-10
+            inset-[-80px]
 
-            w-16
-            h-16
+            rounded-full
+
+            bg-violet-500/20
+
+            blur-[120px]
+          "
+        />
+
+        {/* ANILLO */}
+
+        <motion.div
+          animate={{
+            rotate: 360,
+          }}
+          transition={{
+            duration: 40,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+          className="
+            absolute
+
+            inset-[-12px]
 
             rounded-full
 
             border
-            border-white/10
+
+            border-violet-400/10
           "
         />
+
       </motion.div>
 
       {/* SATÉLITE */}
