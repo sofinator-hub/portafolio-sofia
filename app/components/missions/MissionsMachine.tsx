@@ -285,12 +285,17 @@ function OutputTray({ project }: { project: typeof missions[0] | null }) {
               </div>
 
               <div className="flex-1 min-w-0">
-                <p className="font-mono text-[10px] tracking-[0.3em] mb-0.5" style={{ color: c.primary }}>
-                  PROJECT DISPENSED
-                </p>
-                <h3 className="font-black tracking-widest text-xl text-white leading-none mb-2">
-                  {project.title}
-                </h3>
+<h2
+  className="
+    font-black
+    text-3xl
+    md:text-5xl
+    tracking-tight
+    text-white
+  "
+>
+  Máquina Expendedora de Proyectos
+</h2>
                 <p className="text-white/50 text-xs leading-relaxed mb-3 line-clamp-2">
                   {project.description}
                 </p>
@@ -434,7 +439,7 @@ export default function MissionsMachine() {
       </div>
 
       {/* ═══════════════════ MACHINE CHASSIS ═══════════════════ */}
-      <div className="relative max-w-3xl mx-auto">
+      <div className="relative max-w-4xl mx-auto flex justify-center">
 
         {/* Drop shadow + outer glow */}
         <div
@@ -444,7 +449,7 @@ export default function MissionsMachine() {
 
         {/* Main chassis body */}
         <div
-          className="relative rounded-[36px] overflow-hidden"
+         className="relative rounded-[36px] overflow-hidden w-full max-w-[950px]"
           style={{
             background: "linear-gradient(180deg, #1a1a28 0%, #0d0d18 40%, #080810 100%)",
             border: "2px solid rgba(255,255,255,0.1)",
