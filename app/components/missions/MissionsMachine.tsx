@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 import { missions } from "../../data/missions";
 import React from "react";
-
+import OrbitBackground from "../hero/OrbitBackground";
+import Stars from "../hero/Stars";
 // ─── Color palette per project ────────────────────────────────────────────────
 const COLORS: Record<string, {
   primary: string; glow: string; light: string; dark: string;
@@ -402,6 +403,15 @@ export default function MissionsMachine() {
 
   return (
     <section id="projects" className="relative py-24 px-4 overflow-hidden">
+
+  {/* Background espacial */}
+  <div className="absolute inset-0 opacity-30 pointer-events-none">
+    <OrbitBackground />
+  </div>
+
+  <div className="absolute inset-0 opacity-50 pointer-events-none">
+    <Stars />
+  </div>
       {/* Global shimmer animation */}
       <style>{`
         @keyframes shimmer { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
