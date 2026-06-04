@@ -317,7 +317,7 @@ function OutputTray({ project }: { project: typeof missions[0] | null }) {
                   className="inline-flex items-center gap-2 font-black text-xs tracking-widest px-4 py-2 rounded-lg transition-all hover:scale-105 active:scale-95"
                   style={{ background: `linear-gradient(135deg, ${c.primary}, ${c.primary}cc)`, color: "#000", boxShadow: `0 0 20px rgba(${c.rgb},0.5)` }}
                 >
-                  VISIT WEBSITE
+                  VISITAR WEB
                   <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                     <path d="M1.5 8.5l7-7M8.5 1.5h-5M8.5 1.5v5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
